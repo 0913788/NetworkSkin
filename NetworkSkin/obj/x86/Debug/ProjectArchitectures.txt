@@ -1,0 +1,2 @@
+C:\Users\Ricardo\Source\Repos\QSbackgroundScanner\NetworkSkin\BackGroundScanner\BackGroundScanner.csproj;x86
+C:\Users\Ricardo\Source\Repos\QSbackgroundScanner\NetworkSkin\NetworkSkin\NetworkSkin.csproj;x86

@@ -1,0 +1,15 @@
+﻿<Page
+    x:Class="NetworkSkin.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NetworkSkin"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Button x:Name="button" Content="Run" HorizontalAlignment="Left" Margin="89,345,0,0" VerticalAlignment="Top" Click="button_Click"/>
+        <Button x:Name="button1" Content="Stop" HorizontalAlignment="Left" Margin="202,345,0,0" VerticalAlignment="Top" Click="button1_Click"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="135,260,0,0"/>
+    </Grid>
+</Page>
