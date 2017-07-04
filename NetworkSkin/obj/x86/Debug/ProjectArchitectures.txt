@@ -1,2 +1,2 @@
-C:\Users\Ricardo\Source\Repos\NetworkSkin\BackGroundScanner\BackGroundScanner.csproj;x86
-C:\Users\Ricardo\Source\Repos\NetworkSkin\NetworkSkin\NetworkSkin.csproj;x86
+C:\Users\Julian\Source\Repos\NetworkSkin2\BackGroundScanner\BackGroundScanner.csproj;x86
+C:\Users\Julian\Source\Repos\NetworkSkin2\NetworkSkin\NetworkSkin.csproj;x86

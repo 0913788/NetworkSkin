@@ -52,5 +52,11 @@ namespace BackGroundScanner.Code
             if (ActiveDevice) await WifiDevice.ScanAsync();
             else return;
         }
+
+        public double calculateDistance(double levelInDb, double freqInMHz)
+        {
+            double exp = (27.55 - (20 * Math.Log10(freqInMHz)) + Math.Abs(levelInDb)) / 20.0;
+            return Math.Pow(10.0, exp);
+        }
     }
 }
