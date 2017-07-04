@@ -38,21 +38,53 @@ namespace BackGroundScanner
                     stopwatch.Start();
                     try
                     {
-                        var scanResults = adapter.ScanResults(StaticData.APData);
-                        Dictionary<string, float> distResults = new Dictionary<string, float>();
-                        foreach (var result in scanResults)
+                        List<ProbeResult> Results = adapter.ScanResults(StaticData.APData).ToList();
+                        foreach (var result in Results)
                         {
-                            distResults.Add(result.GetMAC(), (float)calculateDistance(result.GetRSSI(), result.GetFrequency()));    
+                            result.Distance = (float)calculateDistance(result.GetRSSI(), result.GetFrequency());    
                         }
-                        Dictionary<string, float> retResults = new Dictionary<string, float>();
-                        var newList = distResults.ToList();
-                        newList.Sort();
-                        var retdict = distResults.OrderBy(xx => xx.Value);
-                        
+                        ProbeResult[] probeArray = new ProbeResult[3];
 
-                        var tempp = GetPosition(new Vector2(-11.0f, -0.13f), new Vector2(-1.66f, -7.57f),
-                            new Vector2(-2.65f, -8.26f), 11.0f, 7.75f, 8.56f);
-                        DbCon.PostLocation(1, tempp.X, tempp.Y);
+                        for (int i = 0; i < Results.Count-1; i++)
+                        {
+                            if (i <= 2)
+                            {
+                                probeArray[i] = Results[i];
+                            }
+                            else
+                            {
+                                //bool st = false, nd= false, rd = false;
+                                for (int j = 0; j < probeArray.Count()-1; j++)
+                                {
+                                    //if (probeArray[j].Distance > Results[i].Distance)
+                                    //{
+                                    //    switch (j)
+                                    //    {
+                                    //        case 0:
+                                    //            st = true;
+                                    //            break;
+                                    //        case 1:
+                                    //            nd = true;
+                                    //            break;
+                                    //        case 2:
+                                    //            rd = true;
+                                    //            break;
+                                    //        default:
+                                    //            break;
+                                    //    }
+                                        probeArray[j] = Results[i];
+                                    }
+                                }
+
+                            }
+
+                            var tmp = GetPosition(new Vector2(probeArray[0].X, probeArray[0].Y), 
+                                                 new Vector2(probeArray[1].X, probeArray[1].Y), 
+                                                 new Vector2(probeArray[2].X, probeArray[2].Y),
+                                                 probeArray[0].Distance, probeArray[1].Distance, probeArray[2].Distance);
+                            //var tempp = GetPosition(new Vector2(-11.0f, -0.13f), new Vector2(-1.66f, -7.57f),
+                            //    new Vector2(-2.65f, -8.26f), 11.0f, 7.75f, 8.56f);
+                        DbCon.PostLocation(1, tmp.X, tmp.Y);
                     }
                     catch
                     {

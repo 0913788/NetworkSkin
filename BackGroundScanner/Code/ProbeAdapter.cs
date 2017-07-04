@@ -30,7 +30,13 @@ namespace BackGroundScanner.Code
                 Scan();                                                                                                   //check
                 foreach (WiFiAvailableNetwork network in WifiDevice.NetworkReport.AvailableNetworks.Where(x => macStrings.Contains(x.Bssid)).OrderByDescending(x => x.NetworkRssiInDecibelMilliwatts))
                 {
-                    results.Add(new ProbeResult(network.Bssid, network.Ssid, network.NetworkRssiInDecibelMilliwatts, network.ChannelCenterFrequencyInKilohertz));
+                    foreach(ApData ap in MACs)
+                    {
+                        if(ap.MAC == network.Bssid)
+                        {
+                            results.Add(new ProbeResult(network.Bssid, network.Ssid, network.NetworkRssiInDecibelMilliwatts, network.ChannelCenterFrequencyInKilohertz, ap.X, ap.Y));
+                        }
+                    }
                 }
             }
             return results;
