@@ -43,8 +43,8 @@
     <Extension Category="windows.activatableClass.inProcessServer">
       <InProcessServer>
         <Path>CLRHost.dll</Path>
-        <ActivatableClass ActivatableClassId="BackGroundScanner.BackGroundScanning" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="BackGroundScanner.Code.ProbeResult" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="BackGroundScanner.BackGroundScanning" ThreadingModel="both" />
       </InProcessServer>
     </Extension>
   </Extensions>

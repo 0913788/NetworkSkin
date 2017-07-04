@@ -16,7 +16,7 @@
     <PackageRegistrationPath>
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
-    <RegisteredManifestChecksum>0EED30476C96F693AFE90DFF90AC360D51868356DD28888E6D61361DFD43D261</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>C7DCF675620280651BFA5CF52F99F3D0449DE93F4BBE2A10629E7BB0A6293E9F</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>a7adbd47-2c1a-4626-adfc-167e8acd4735_1.0.0.0_x64__f7jej9wr3mfpr</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>a7adbd47-2c1a-4626-adfc-167e8acd4735_f7jej9wr3mfpr!App</RegisteredUserModeAppID>
     <RegisteredPackageID>a7adbd47-2c1a-4626-adfc-167e8acd4735</RegisteredPackageID>
@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\Ricardo\Source\Repos\NetworkSkin\NetworkSkin\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-07-04T11:42:39.840</Modified>
+      <Modified>2017-07-04T12:23:42.979</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Ricardo\Source\Repos\NetworkSkin\NetworkSkin\bin\x64\Debug\NetworkSkin.exe">
       <PackagePath>entrypoint\NetworkSkin.exe</PackagePath>
-      <Modified>2017-07-04T11:42:33.780</Modified>
+      <Modified>2017-07-04T12:23:42.277</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ricardo\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -450,7 +450,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ricardo\Source\Repos\NetworkSkin\BackGroundScanner\bin\x64\Debug\BackGroundScanner.winmd">
       <PackagePath>BackGroundScanner.winmd</PackagePath>
-      <Modified>2017-07-04T11:42:31.801</Modified>
+      <Modified>2017-07-04T11:56:22.784</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ricardo\Source\Repos\NetworkSkin\NetworkSkin\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
@@ -504,7 +504,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ricardo\Source\Repos\NetworkSkin\NetworkSkin\bin\x64\Debug\Core\NetworkSkin.exe">
       <PackagePath>NetworkSkin.exe</PackagePath>
-      <Modified>2017-07-04T11:42:39.826</Modified>
+      <Modified>2017-07-04T12:23:42.974</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

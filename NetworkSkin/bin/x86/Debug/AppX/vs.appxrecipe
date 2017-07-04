@@ -10,13 +10,13 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>a7adbd47-2c1a-4626-adfc-167e8acd4735</PackageIdentityName>
     <PackageIdentityPublisher>CN=Ricardo</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\Ricardo\Source\Repos\QSbackgroundScanner\NetworkSkin\NetworkSkin\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Ricardo\Source\Repos\NetworkSkin\NetworkSkin\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
-    <RegisteredManifestChecksum>18C0538082F0343B291AA5F3965D9795074067CB5F7F55660C4822586CCFE88D</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>F848EFB74375DEAD890F015FF5C23D3814AD4D2E37B52F244858D2FE35F1AD95</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>a7adbd47-2c1a-4626-adfc-167e8acd4735_1.0.0.0_x86__f7jej9wr3mfpr</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>a7adbd47-2c1a-4626-adfc-167e8acd4735_f7jej9wr3mfpr!App</RegisteredUserModeAppID>
     <RegisteredPackageID>a7adbd47-2c1a-4626-adfc-167e8acd4735</RegisteredPackageID>
@@ -25,16 +25,16 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Ricardo\Source\Repos\QSbackgroundScanner\NetworkSkin\NetworkSkin\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Ricardo\Source\Repos\NetworkSkin\NetworkSkin\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-07-04T11:32:50.238</Modified>
+      <Modified>2017-07-04T13:04:30.731</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Ricardo\Source\Repos\QSbackgroundScanner\NetworkSkin\NetworkSkin\bin\x86\Debug\NetworkSkin.exe">
+    <AppxPackagedFile Include="C:\Users\Ricardo\Source\Repos\NetworkSkin\NetworkSkin\bin\x86\Debug\NetworkSkin.exe">
       <PackagePath>entrypoint\NetworkSkin.exe</PackagePath>
-      <Modified>2017-07-04T11:32:45.890</Modified>
+      <Modified>2017-07-04T13:04:26.493</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ricardo\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -448,49 +448,49 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2015-07-22T21:11:12.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ricardo\Source\Repos\QSbackgroundScanner\NetworkSkin\BackGroundScanner\bin\x86\Debug\BackGroundScanner.winmd">
+    <AppxPackagedFile Include="C:\Users\Ricardo\Source\Repos\NetworkSkin\BackGroundScanner\bin\x86\Debug\BackGroundScanner.winmd">
       <PackagePath>BackGroundScanner.winmd</PackagePath>
-      <Modified>2017-07-04T11:32:44.913</Modified>
+      <Modified>2017-07-04T13:04:25.047</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ricardo\Source\Repos\QSbackgroundScanner\NetworkSkin\NetworkSkin\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\Ricardo\Source\Repos\NetworkSkin\NetworkSkin\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2017-07-03T13:40:33.761</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ricardo\Source\Repos\QSbackgroundScanner\NetworkSkin\NetworkSkin\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Ricardo\Source\Repos\NetworkSkin\NetworkSkin\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2015-09-20T15:20:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ricardo\Source\Repos\QSbackgroundScanner\NetworkSkin\NetworkSkin\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Ricardo\Source\Repos\NetworkSkin\NetworkSkin\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-09-20T15:20:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ricardo\Source\Repos\QSbackgroundScanner\NetworkSkin\NetworkSkin\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Ricardo\Source\Repos\NetworkSkin\NetworkSkin\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-09-20T15:20:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ricardo\Source\Repos\QSbackgroundScanner\NetworkSkin\NetworkSkin\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Ricardo\Source\Repos\NetworkSkin\NetworkSkin\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-09-20T15:20:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ricardo\Source\Repos\QSbackgroundScanner\NetworkSkin\NetworkSkin\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\Ricardo\Source\Repos\NetworkSkin\NetworkSkin\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-09-20T15:20:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ricardo\Source\Repos\QSbackgroundScanner\NetworkSkin\NetworkSkin\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\Ricardo\Source\Repos\NetworkSkin\NetworkSkin\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-09-20T15:20:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ricardo\Source\Repos\QSbackgroundScanner\NetworkSkin\NetworkSkin\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Ricardo\Source\Repos\NetworkSkin\NetworkSkin\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-09-20T15:20:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ricardo\Source\Repos\QSbackgroundScanner\NetworkSkin\NetworkSkin\bin\x86\Debug\NetworkSkin.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Ricardo\Source\Repos\NetworkSkin\NetworkSkin\bin\x86\Debug\NetworkSkin.xr.xml">
       <PackagePath>NetworkSkin.xr.xml</PackagePath>
       <Modified>2017-07-03T23:25:25.962</Modified>
     </AppxPackagedFile>
@@ -498,13 +498,13 @@
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2016-07-13T16:33:54.498</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ricardo\Source\Repos\QSbackgroundScanner\NetworkSkin\NetworkSkin\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Ricardo\Source\Repos\NetworkSkin\NetworkSkin\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2017-07-04T11:12:27.784</Modified>
+      <Modified>2017-07-04T12:29:23.797</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ricardo\Source\Repos\QSbackgroundScanner\NetworkSkin\NetworkSkin\bin\x86\Debug\Core\NetworkSkin.exe">
+    <AppxPackagedFile Include="C:\Users\Ricardo\Source\Repos\NetworkSkin\NetworkSkin\bin\x86\Debug\Core\NetworkSkin.exe">
       <PackagePath>NetworkSkin.exe</PackagePath>
-      <Modified>2017-07-04T11:32:50.226</Modified>
+      <Modified>2017-07-04T13:04:30.727</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -32,17 +32,45 @@ namespace NetworkSkin
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            textBlock.Text = "Stopped"; 
+            textBlock.Text = "Stopped";
         }
 
-        private async void button_Click(object sender, RoutedEventArgs e)
+        private void button_Click(object sender, RoutedEventArgs e)
         {
             textBlock.Text = "Running";
-            var access = await BackgroundExecutionManager.RequestAccessAsync();
-            var task = new BackgroundTaskBuilder { Name = "Scanner", TaskEntryPoint=typeof(BackGroundScanner.BackGroundScanning).ToString()};
-            task.SetTrigger(new SystemTrigger(SystemTriggerType.InternetAvailable, false));
-            //task.SetTrigger(new TimeTrigger(15, false));
-            task.Register();
+            var x = RegisterBackgroundTask(typeof(BackGroundScanner.BackGroundScanning).ToString(), "Scanner", new SystemTrigger(SystemTriggerType.InternetAvailable, false), null);
+        }
+
+        public static BackgroundTaskRegistration RegisterBackgroundTask(string taskEntryPoint,
+                                                                string taskName,
+                                                                IBackgroundTrigger trigger,
+                                                                IBackgroundCondition condition)
+        {
+
+            foreach (var cur in BackgroundTaskRegistration.AllTasks)
+            {
+
+                if (cur.Value.Name == taskName)
+                {
+                    return (BackgroundTaskRegistration)(cur.Value);
+                }
+            }
+
+            var builder = new BackgroundTaskBuilder();
+
+            builder.Name = taskName;
+            builder.TaskEntryPoint = taskEntryPoint;
+            builder.SetTrigger(trigger);
+
+            if (condition != null)
+            {
+
+                builder.AddCondition(condition);
+            }
+
+            BackgroundTaskRegistration task = builder.Register();
+
+            return task;
         }
     }
 }

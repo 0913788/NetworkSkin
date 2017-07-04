@@ -15,22 +15,38 @@ namespace BackGroundScanner
     public sealed class BackGroundScanning : IBackgroundTask
     {
         ProbeAdapter adapter = new ProbeAdapter();
-        StaticData data = new StaticData();
-        DbCall dbCon = new DbCall();
+        Stopwatch stopwatch = new Stopwatch();
+        DbCall DbCon = new DbCall();
+
 
         public void Run(IBackgroundTaskInstance taskInstance)
         {
-            //Stopwatch stopwatch = new Stopwatch();
-            //int x = 0;
-            //while (x<15)
-            //{
-            //    if (stopwatch.ElapsedMilliseconds > 1000)
-            //    {
-                    dbCon.PostLocation(1, (float)0.04+1*0.1f, (float)-1.42+1*0.1f);
-            //        x++;
-            //        stopwatch.Reset();
-            //    }
-            //}
+            doShit();
+        }
+
+        public void doShit()
+        {
+            stopwatch.Start();
+            int x = 0;
+            while (x < 150)
+            {
+                if (stopwatch.ElapsedMilliseconds > 1000)
+                {
+                    x++;
+                    stopwatch.Reset();
+                    stopwatch.Start();
+                    try
+                    {
+                        DbCon.PostLocation(1, (float)2.04 + x * 0.1f, (float)-5.42 + x * 0.1f);
+                    }
+                    catch
+                    {
+                        continue;
+                    }
+                    continue;
+                }
+                continue;
+            }
         }
     }
 }
