@@ -38,6 +38,18 @@ namespace BackGroundScanner
                     stopwatch.Start();
                     try
                     {
+                        var scanResults = adapter.ScanResults(StaticData.APData);
+                        Dictionary<string, float> distResults = new Dictionary<string, float>();
+                        foreach (var result in scanResults)
+                        {
+                            distResults.Add(result.GetMAC(), (float)calculateDistance(result.GetRSSI(), result.GetFrequency()));    
+                        }
+                        Dictionary<string, float> retResults = new Dictionary<string, float>();
+                        var newList = distResults.ToList();
+                        newList.Sort();
+                        var retdict = distResults.OrderBy(xx => xx.Value);
+                        
+
                         var tempp = GetPosition(new Vector2(-11.0f, -0.13f), new Vector2(-1.66f, -7.57f),
                             new Vector2(-2.65f, -8.26f), 11.0f, 7.75f, 8.56f);
                         DbCon.PostLocation(1, tempp.X, tempp.Y);
@@ -83,6 +95,12 @@ namespace BackGroundScanner
             //create a new vector2 with the coordinates of the target and return it
             var P = new Vector2(x, y);
             return P;
+        }
+
+        public double calculateDistance(double levelInDb, double freqInMHz)
+        {
+            double exp = (27.55 - (20 * Math.Log10(freqInMHz)) + Math.Abs(levelInDb)) / 20.0;
+            return Math.Pow(10.0, exp);
         }
 
     }

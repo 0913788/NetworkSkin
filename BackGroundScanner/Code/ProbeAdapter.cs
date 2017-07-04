@@ -17,13 +17,18 @@ namespace BackGroundScanner.Code
         {
             SetWifiDevice();
         }
-        public IEnumerable<ProbeResult> ScanResults(List<string> MACs)
+        public IEnumerable<ProbeResult> ScanResults(List<ApData> MACs)
         {
+            List<string> macStrings = new List<string>();
             List<ProbeResult> results = new List<ProbeResult>();
+            foreach (ApData apData in MACs)
+            {
+                macStrings.Add(apData.MAC);
+            }
             if (ActiveDevice)
             {
                 Scan();                                                                                                   //check
-                foreach (WiFiAvailableNetwork network in WifiDevice.NetworkReport.AvailableNetworks.Where(x => MACs.Contains(x.Bssid)).OrderByDescending(x => x.NetworkRssiInDecibelMilliwatts))
+                foreach (WiFiAvailableNetwork network in WifiDevice.NetworkReport.AvailableNetworks.Where(x => macStrings.Contains(x.Bssid)).OrderByDescending(x => x.NetworkRssiInDecibelMilliwatts))
                 {
                     results.Add(new ProbeResult(network.Bssid, network.Ssid, network.NetworkRssiInDecibelMilliwatts, network.ChannelCenterFrequencyInKilohertz));
                 }
