@@ -58,7 +58,6 @@ C:\Users\Julian\Source\Repos\NetworkSkin2\BackGroundScanner\obj\x86\Debug\BackGr
 C:\Users\Ricardo\Source\Repos2\NetworkSkin\BackGroundScanner\bin\x86\Debug\BackGroundScanner.winmd
 C:\Users\Ricardo\Source\Repos2\NetworkSkin\BackGroundScanner\bin\x86\Debug\BackGroundScanner.pdb
 C:\Users\Ricardo\Source\Repos2\NetworkSkin\BackGroundScanner\bin\x86\Debug\BackGroundScanner.pri
-C:\Users\Ricardo\Source\Repos2\NetworkSkin\BackGroundScanner\obj\x86\Debug\BackGroundScanner.csprojResolveAssemblyReference.cache
 C:\Users\Ricardo\Source\Repos2\NetworkSkin\BackGroundScanner\obj\x86\Debug\BackGroundScanner.winmd
 C:\Users\Ricardo\Source\Repos2\NetworkSkin\BackGroundScanner\obj\x86\Debug\BackGroundScanner.pdb
 C:\Users\Ricardo\Source\Repos2\NetworkSkin\BackGroundScanner\obj\x86\Debug\BackGroundScanner.winmdobj

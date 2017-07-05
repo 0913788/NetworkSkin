@@ -15,18 +15,21 @@ namespace BackGroundScanner
 {
     public sealed class BackGroundScanning : IBackgroundTask
     {
-        ProbeAdapter adapter = new ProbeAdapter();
         Stopwatch stopwatch = new Stopwatch();
         DbCall DbCon = new DbCall();
-
+        BackgroundTaskDeferral _deferral;
+        ProbeAdapter adapter;
 
         public void Run(IBackgroundTaskInstance taskInstance)
         {
+            _deferral = taskInstance.GetDeferral();
+            adapter = new ProbeAdapter();
             doShit();
         }
 
         public void doShit()
         {
+            StaticData Data = new StaticData();
             stopwatch.Start();
             int x = 0;
             while (x < 150)
@@ -38,53 +41,85 @@ namespace BackGroundScanner
                     stopwatch.Start();
                     try
                     {
+                        adapter.Scan();
                         List<ProbeResult> Results = adapter.ScanResults(StaticData.APData).ToList();
+                        _deferral.Complete();
                         foreach (var result in Results)
                         {
                             result.Distance = (float)calculateDistance(result.GetRSSI(), result.GetFrequency());    
                         }
-                        ProbeResult[] probeArray = new ProbeResult[3];
 
-                        for (int i = 0; i < Results.Count-1; i++)
+                        ProbeResult[] distanceResults = new ProbeResult[3];
+                        distanceResults[0] = null;
+                        distanceResults[1] = null;
+                        distanceResults[2] = null;
+                        bool tmp1, tmp2, tmp3;
+
+                        foreach (var result in Results)
                         {
-                            if (i <= 2)
-                            {
-                                probeArray[i] = Results[i];
-                            }
-                            else
-                            {
-                                //bool st = false, nd= false, rd = false;
-                                for (int j = 0; j < probeArray.Count()-1; j++)
+                            tmp1 = false; tmp2 = false; tmp3 = false;
+                            //Fill if  nulls;
+                            if (distanceResults[0] == null) distanceResults[0] = result;
+                            else if (distanceResults[1] == null) distanceResults[1] = result;
+                            else if (distanceResults[2] == null) distanceResults[2] = result;
+                            else //No nulls?
+                            {   
+                                for (int i = 0; i < distanceResults.Count()-1; i++)
                                 {
-                                    //if (probeArray[j].Distance > Results[i].Distance)
-                                    //{
-                                    //    switch (j)
-                                    //    {
-                                    //        case 0:
-                                    //            st = true;
-                                    //            break;
-                                    //        case 1:
-                                    //            nd = true;
-                                    //            break;
-                                    //        case 2:
-                                    //            rd = true;
-                                    //            break;
-                                    //        default:
-                                    //            break;
-                                    //    }
-                                        probeArray[j] = Results[i];
+                                    if(comp(result.Distance, distanceResults[i].Distance))
+                                    {
+                                        switch (i)
+                                        {
+                                            case 0:
+                                                tmp1 = true;
+                                                break;
+                                            case 1:
+                                                tmp2 = true;
+                                                break;
+                                            case 2:
+                                                tmp3 = true;
+                                                break;
+                                        }
                                     }
                                 }
-
+                                if ((tmp1 && tmp2) && tmp3)
+                                {
+                                    if (comp(distanceResults[0].Distance, distanceResults[1].Distance))
+                                    {
+                                        if (comp(distanceResults[1].Distance, distanceResults[2].Distance)) distanceResults[2] = result;
+                                        else distanceResults[1] = result;
+                                    }
+                                    else
+                                    {
+                                        if (comp(distanceResults[0].Distance, distanceResults[1].Distance)) distanceResults[1] = result;
+                                        else distanceResults[0] = result;
+                                    }
+                                }
+                                else if (tmp1 && tmp2)
+                                {
+                                    if (comp(distanceResults[0].Distance, distanceResults[1].Distance)) distanceResults[1] = result;
+                                    else distanceResults[0] = result;
+                                }
+                                else if (tmp2 && tmp3)
+                                {
+                                    if (comp(distanceResults[1].Distance, distanceResults[2].Distance)) distanceResults[2] = result;
+                                    else distanceResults[1] = result;
+                                }
+                                else if (tmp1 && tmp3)
+                                {
+                                    if (comp(distanceResults[0].Distance, distanceResults[2].Distance)) distanceResults[2] = result;
+                                    else distanceResults[0] = result;
+                                }
+                                else if (tmp1) distanceResults[0] = result;
+                                else if (tmp2) distanceResults[1] = result;
+                                else if (tmp3) distanceResults[2] = result;
                             }
-
-                            var tmp = GetPosition(new Vector2(probeArray[0].X, probeArray[0].Y), 
-                                                 new Vector2(probeArray[1].X, probeArray[1].Y), 
-                                                 new Vector2(probeArray[2].X, probeArray[2].Y),
-                                                 probeArray[0].Distance, probeArray[1].Distance, probeArray[2].Distance);
-                            //var tempp = GetPosition(new Vector2(-11.0f, -0.13f), new Vector2(-1.66f, -7.57f),
-                            //    new Vector2(-2.65f, -8.26f), 11.0f, 7.75f, 8.56f);
-                        DbCon.PostLocation(1, tmp.X, tmp.Y);
+                        }
+                        Vector2 v2 = GetPosition(new Vector2(distanceResults[0].getX(), distanceResults[0].getY()),
+                                                new Vector2(distanceResults[2].getX(), distanceResults[2].getY()),
+                                                new Vector2(distanceResults[3].getX(), distanceResults[3].getY()),
+                                                distanceResults[0].Distance, distanceResults[1].Distance, distanceResults[2].Distance);
+                        DbCon.PostLocation(1, v2.X, v2.Y);
                     }
                     catch
                     {
@@ -94,6 +129,12 @@ namespace BackGroundScanner
                 }
                 continue;
             }
+        }
+
+        private bool comp(float st, float nd)
+        {
+            if (st >= nd) return false;
+            else return true;
         }
 
         public static float Pow(float i)

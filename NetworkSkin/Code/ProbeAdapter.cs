@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Devices.WiFi;
 
-namespace BackGroundScanner.Code
+namespace NetworkSkin
 {
     class ProbeAdapter
     {
@@ -15,7 +15,6 @@ namespace BackGroundScanner.Code
         public ProbeAdapter()
         {
             SetWifiDevice();
-            ActiveDevice = true;
         }
         public IEnumerable<ProbeResult> ScanResults(List<ApData> MACs)
         {
@@ -27,14 +26,17 @@ namespace BackGroundScanner.Code
             }
             if (ActiveDevice)
             {
-                //Scan();                                                                                                   //check
-                foreach (WiFiAvailableNetwork network in WifiDevice.NetworkReport.AvailableNetworks.Where(x => macStrings.Contains(x.Bssid)).OrderByDescending(x => x.NetworkRssiInDecibelMilliwatts))
+                Scan();                                                                                                  //check
+                IEnumerable<WiFiAvailableNetwork> y = WifiDevice.NetworkReport.AvailableNetworks.OrderByDescending(x => x.NetworkRssiInDecibelMilliwatts);
+                //foreach (WiFiAvailableNetwork network in WifiDevice.NetworkReport.AvailableNetworks.Where(x => macStrings.Contains(x.Bssid)).OrderByDescending(x => x.NetworkRssiInDecibelMilliwatts))
+                foreach (WiFiAvailableNetwork network in y)
                 {
                     foreach(ApData ap in MACs)
                     {
                         if(ap.MAC == network.Bssid)
                         {
                             results.Add(new ProbeResult(network.Bssid, network.Ssid, network.NetworkRssiInDecibelMilliwatts, network.ChannelCenterFrequencyInKilohertz, ap.X, ap.Y));
+                            continue;
                         }
                     }
                 }

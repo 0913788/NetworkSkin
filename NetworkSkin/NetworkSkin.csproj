@@ -95,6 +95,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Code\ApData.cs" />
+    <Compile Include="Code\DbCall.cs" />
+    <Compile Include="Code\ProbeAdapter.cs" />
+    <Compile Include="Code\ProbeResult.cs" />
+    <Compile Include="Code\StaticData.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
